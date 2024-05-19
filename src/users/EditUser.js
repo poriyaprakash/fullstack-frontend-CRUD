@@ -5,6 +5,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 export default function EditUser() {
   let navigate = useNavigate();
 
+  // eslint-disable-next-line
   const { id } = useParams();
 
   const [user, setUser] = useState({
@@ -21,16 +22,17 @@ export default function EditUser() {
 
   useEffect(() => {
     loadUser();
+    // eslint-disable-next-line
   }, []);
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.put(`http://localhost:8080/user/${id}`, user);
+    await axios.put(`http://localhost:8181/user/${id}`, user);
     navigate("/");
   };
 
   const loadUser = async () => {
-    const result = await axios.get(`http://localhost:8080/user/${id}`);
+    const result = await axios.get(`http://localhost:8181/user/${id}`);
     setUser(result.data);
   };
 

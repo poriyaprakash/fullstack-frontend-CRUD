@@ -19,7 +19,7 @@ export default function AddUser() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8080/user", user);
+    await axios.post("http://localhost:8181/user", user);
     navigate("/");
   };
 
@@ -41,6 +41,7 @@ export default function AddUser() {
                 name="name"
                 value={name}
                 onChange={(e) => onInputChange(e)}
+                required
               />
             </div>
             <div className="mb-3">
@@ -54,6 +55,7 @@ export default function AddUser() {
                 name="username"
                 value={username}
                 onChange={(e) => onInputChange(e)}
+                required
               />
             </div>
             <div className="mb-3">
@@ -67,6 +69,7 @@ export default function AddUser() {
                 name="email"
                 value={email}
                 onChange={(e) => onInputChange(e)}
+                required
               />
             </div>
             <button type="submit" className="btn btn-outline-primary">

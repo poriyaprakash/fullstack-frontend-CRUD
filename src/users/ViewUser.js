@@ -13,10 +13,11 @@ export default function ViewUser() {
 
   useEffect(() => {
     loadUser();
+    // eslint-disable-next-line
   }, []);
 
   const loadUser = async () => {
-    const result = await axios.get(`http://localhost:8080/user/${id}`);
+    const result = await axios.get(`http://localhost:8181/user/${id}`);
     setUser(result.data);
   };
 
@@ -31,15 +32,15 @@ export default function ViewUser() {
               Details of user id : {user.id}
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
-                  <b>Name:</b>
+                  <b>Name: </b>
                   {user.name}
                 </li>
                 <li className="list-group-item">
-                  <b>UserName:</b>
+                  <b>User Name: </b>
                   {user.username}
                 </li>
                 <li className="list-group-item">
-                  <b>Email:</b>
+                  <b>Email: </b>
                   {user.email}
                 </li>
               </ul>
